@@ -124,11 +124,11 @@ const Registrar = () => {
       to="/" >
         ¿Ya tienes una cuenta? Inicia Sesión
       </Link>
-      <Link
+      {/* <Link
       className='block text-center my-4 text-slate-500 uppercase text-sm' 
       to="/olvide-password" >
         Olvide mi contraseña
-      </Link>
+      </Link> */}
     </nav>
 
   </>
