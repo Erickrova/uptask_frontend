@@ -88,11 +88,11 @@ const Login = () => {
         to="/registrar" >
           ¿No tienes una cuenta? Resgistrate
         </Link>
-        <Link
+        {/* <Link
         className='block text-center my-4 text-slate-500 uppercase text-sm' 
         to="/olvide-password" >
           Olvide mi contraseña
-        </Link>
+        </Link> */}
       </nav>
 
     </>
