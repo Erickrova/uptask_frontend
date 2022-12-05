@@ -9,9 +9,9 @@ import Colaborador from "../components/Colaborador"
 import ModalEliminarColaborador from "../components/ModalEliminarColaborador"
 import Alerta from "../components/Alerta"
 import useAdmin from "../hooks/useAdmin"
-import io from "socket.io-client"
+// import io from "socket.io-client"
 
-let socket;
+// let socket;
 
 const Proyecto = () => {
  
@@ -47,33 +47,33 @@ const Proyecto = () => {
     asignarPrioridadTarea()
   },[proyecto])
   
-  useEffect(()=>{
-    socket = io(import.meta.env.VITE_BACKEND_URL)
-    socket.emit("abrir proyecto",id)
-  },[])
+  // useEffect(()=>{
+  //   socket = io(import.meta.env.VITE_BACKEND_URL)
+  //   socket.emit("abrir proyecto",id)
+  // },[])
   
-  useEffect(()=>{
-    socket.on("tarea agregada",tareaNueva=>{
-      if(tareaNueva.proyecto === proyecto._id){
-        submitTareaProyecto(tareaNueva)
-      }
-    })
-    socket.on("tarea eliminada",tareaEliminada=>{
-      if(tareaEliminada.proyecto === proyecto._id){
-        socketTareaEliminada(tareaEliminada)
-      }
-    })
-    socket.on("tarea editada",tareaEditada =>{
-      if(tareaEditada.proyecto._id === proyecto._id){
-        socketTareaEditada(tareaEditada)
-      }
-    })
-    socket.on("tarea completada",tareaCompletada =>{
-      if(tareaCompletada.proyecto._id === proyecto._id){
-        socketCompletarTarea(tareaCompletada)
-      }
-    })
-  })
+  // useEffect(()=>{
+  //   socket.on("tarea agregada",tareaNueva=>{
+  //     if(tareaNueva.proyecto === proyecto._id){
+  //       submitTareaProyecto(tareaNueva)
+  //     }
+  //   })
+  //   socket.on("tarea eliminada",tareaEliminada=>{
+  //     if(tareaEliminada.proyecto === proyecto._id){
+  //       socketTareaEliminada(tareaEliminada)
+  //     }
+  //   })
+  //   socket.on("tarea editada",tareaEditada =>{
+  //     if(tareaEditada.proyecto._id === proyecto._id){
+  //       socketTareaEditada(tareaEditada)
+  //     }
+  //   })
+  //   socket.on("tarea completada",tareaCompletada =>{
+  //     if(tareaCompletada.proyecto._id === proyecto._id){
+  //       socketCompletarTarea(tareaCompletada)
+  //     }
+  //   })
+  // })
  
   
 

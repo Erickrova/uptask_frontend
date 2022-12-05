@@ -1,11 +1,11 @@
 import { useState,useEffect,createContext } from "react";
 import clienteAxios from "../config/clienteAxios"
 import { useNavigate } from "react-router-dom"
-import io from "socket.io-client"
 import useAuth from "../hooks/useAuth";
 
 
-let socket;
+// import io from "socket.io-client"
+// let socket;
 
 const ProyectosContext = createContext()
 
@@ -52,9 +52,9 @@ const ProyectosProvider = ({children})=>{
         }
         obtenerProyectos()
     },[auth])
-    useEffect(()=>{
-        socket = io(import.meta.env.VITE_BACKEND_URL)
-    },[])
+    // useEffect(()=>{
+    //     socket = io(import.meta.env.VITE_BACKEND_URL)
+    // },[])
     const mostrarAlerta = alerta =>{
         setAlerta(alerta)
         setTimeout(()=>{
@@ -212,7 +212,7 @@ const ProyectosProvider = ({children})=>{
                 setAlerta({})
             },1500)
             // socket io
-            socket.emit("editar tarea",data)
+            // socket.emit("editar tarea",data)
         } catch (error) {
             mostrarAlerta({
                 mensaje: error.response.data.msg,
@@ -242,7 +242,7 @@ const ProyectosProvider = ({children})=>{
                 handleModalFormularioTarea()
             },1500)
             // socket io
-            socket.emit("nueva tarea",data)
+            // socket.emit("nueva tarea",data)
 
 
         } catch (error) {
@@ -281,7 +281,7 @@ const ProyectosProvider = ({children})=>{
             setTimeout(()=>{
                 setModalEliminarTarea(false)
             },1500)
-            socket.emit("eliminar tarea",tarea)
+            // socket.emit("eliminar tarea",tarea)
             setTarea({})
         } catch (error) {
             mostrarAlerta({
@@ -398,7 +398,7 @@ const ProyectosProvider = ({children})=>{
             const {data} = await clienteAxios.post(`/tareas/estado/${id}`,{},config)
             
             setAlerta({})
-            socket.emit("completar tarea",data)
+            // socket.emit("completar tarea",data)
             setTarea({})
         } catch (error) {
             console.log(error.response)
