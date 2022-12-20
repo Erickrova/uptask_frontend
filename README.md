@@ -27,6 +27,12 @@ After cloning this git repository you need to follow below steps.
 ```
 npm install
 ```
+Now in the root you need to create an .env file with this environment variable
+
+```
+VITE_BACKEND_URL = backend_url
+```
+
 To run this project you have to use this terminal command.
 ```
 npm run dev
