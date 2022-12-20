@@ -202,7 +202,7 @@ const ProyectosProvider = ({children})=>{
 
         try {
             const {data} = await clienteAxios.put(`/tareas/${tarea.id}`,tarea,config)
-           
+            socketTareaEditada(data)
             mostrarAlerta({
                 mensaje: "Tarea Actualizada Correctamente",
                 error: false
@@ -233,7 +233,9 @@ const ProyectosProvider = ({children})=>{
 
         try {
             const {data} = await clienteAxios.post("/tareas",tarea,config)
-         
+            
+            submitTareaProyecto(data)
+        
             mostrarAlerta({
                 mensaje: "Tarea Creada Correctamente",
                 error: false
@@ -273,7 +275,7 @@ const ProyectosProvider = ({children})=>{
 
         try {
             const {data} = await clienteAxios.delete(`/tareas/${id}`,config)
-      
+            socketTareaEliminada(data)
             mostrarAlerta({
                 mensaje: data.msg,
                 error: false
@@ -396,7 +398,7 @@ const ProyectosProvider = ({children})=>{
         }
         try {
             const {data} = await clienteAxios.post(`/tareas/estado/${id}`,{},config)
-            
+            socketCompletarTarea(data)
             setAlerta({})
             // socket.emit("completar tarea",data)
             setTarea({})
