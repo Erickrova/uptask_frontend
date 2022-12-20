@@ -10,6 +10,7 @@ In this repository you can see the frontend code.
 * React.js
 * Vite
 * JavaScript
+* Headlessui
 * HTML
 * CSS
 * TailwindCss
